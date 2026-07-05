@@ -7,6 +7,35 @@
       box-sizing: border-box;
     }
 
+    /* Skip to content link for accessibility */
+    .skip-to-content {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--button-primary);
+      color: white;
+      padding: 8px 16px;
+      z-index: 10000;
+      text-decoration: none;
+      font-weight: 600;
+      transition: top 0.3s;
+    }
+
+    .skip-to-content:focus {
+      top: 0;
+    }
+
+    /* Keyboard focus indicators for accessibility */
+    a:focus, button:focus, input:focus, textarea:focus, select:focus {
+      outline: 2px solid var(--button-primary);
+      outline-offset: 2px;
+    }
+
+    button:focus-visible, a:focus-visible {
+      outline: 2px solid var(--button-primary);
+      outline-offset: 2px;
+    }
+
     :root {
       --primary: #1a365d;
       --primary-light: #2d5a87;

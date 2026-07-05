@@ -46,6 +46,35 @@
       box-sizing: border-box;
     }
 
+    /* Skip to content link for accessibility */
+    .skip-to-content {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--primary);
+      color: white;
+      padding: 8px 16px;
+      z-index: 10000;
+      text-decoration: none;
+      font-weight: 600;
+      transition: top 0.3s;
+    }
+
+    .skip-to-content:focus {
+      top: 0;
+    }
+
+    /* Keyboard focus indicators for accessibility */
+    a:focus, button:focus, input:focus, textarea:focus, select:focus {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+    }
+
+    button:focus-visible, a:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
       font-size: 16px;
@@ -659,16 +688,17 @@
   </style>
 </head>
 <body>
+  <a href="#main-content" class="skip-to-content">Skip to main content</a>
   <!-- Animated Background Particles -->
   <div class="particles" id="particles"></div>
 
   <!-- Header -->
-  <header>
+  <header role="banner">
     <a href="./main.html" class="back-btn">
       ⬅ Back
     </a>
     <div class="logo">Moovit</div>
-    <button id="theme-toggle" class="theme-toggle" title="Toggle theme">🌙</button>
+    <button id="theme-toggle" class="theme-toggle" title="Toggle theme" aria-label="Toggle color theme">🌙</button>
   </header>
 
   <!-- Hero Section -->
@@ -679,10 +709,10 @@
     </div>
   </section>
 
-  <div class="container">
+  <div class="container" id="main-content" role="main">
     <!-- Mission Section -->
-    <section id="mission" class="section animate-on-scroll">
-      <h2 class="section-title">Our Mission</h2>
+    <section id="mission" class="section animate-on-scroll" role="region" aria-labelledby="mission-title">
+      <h2 class="section-title" id="mission-title">Our Mission</h2>
       <p class="section-subtitle">Redefining logistics with innovation, reliability, and customer-first values</p>
       <div class="mission-card">
         <p>
@@ -792,7 +822,7 @@
   </div>
 
   <!-- Footer -->
-  <footer>
+  <footer role="contentinfo">
     <p>© 2025 Moovit. All Rights Reserved.</p>
   </footer>
 

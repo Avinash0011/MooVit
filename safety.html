@@ -8,6 +8,35 @@
   <style>
     /* Global Styles */
     * {
+
+    /* Skip to content link for accessibility */
+    .skip-to-content {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: #04045b;
+      color: white;
+      padding: 8px 16px;
+      z-index: 10000;
+      text-decoration: none;
+      font-weight: 600;
+      transition: top 0.3s;
+    }
+
+    .skip-to-content:focus {
+      top: 0;
+    }
+
+    /* Keyboard focus indicators for accessibility */
+    a:focus, button:focus, input:focus, textarea:focus, select:focus {
+      outline: 2px solid #00bfff;
+      outline-offset: 2px;
+    }
+
+    button:focus-visible, a:focus-visible {
+      outline: 2px solid #00bfff;
+      outline-offset: 2px;
+    }
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -265,11 +294,12 @@
   </style>
 </head>
 <body>
+  <a href="#main-content" class="skip-to-content">Skip to main content</a>
   <!-- Custom Cursor -->
   <div class="cursor" id="cursor"></div>
 
   <!-- Navbar -->
-  <header class="navbar">
+  <header class="navbar" role="banner">
     <div class="back-btn"><a href="main.html"><i class="fas fa-arrow-left"></i> Back</a></div>
     <div class="logo">
       <i class="fas fa-truck-moving"></i>
@@ -287,7 +317,7 @@
   </section>
 
   <!-- Mission Section -->
-  <section class="mission">
+  <section class="mission" id="main-content" role="main">
     <h2>Our Safety Commitment</h2>
     <p>
       At <strong>MooVit</strong>, safety is our top priority. We follow strict protocols for workplace safety, 
@@ -348,7 +378,7 @@
   </section>
 
   <!-- Footer -->
-  <footer>
+  <footer role="contentinfo">
     <p>&copy; 2025 MooVit. All Rights Reserved.</p>
   </footer>
 

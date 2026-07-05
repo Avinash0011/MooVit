@@ -29,6 +29,35 @@
       box-sizing: border-box;
     }
 
+    /* Skip to content link for accessibility */
+    .skip-to-content {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--primary);
+      color: white;
+      padding: 8px 16px;
+      z-index: 10000;
+      text-decoration: none;
+      font-weight: 600;
+      transition: top 0.3s;
+    }
+
+    .skip-to-content:focus {
+      top: 0;
+    }
+
+    /* Keyboard focus indicators for accessibility */
+    a:focus, button:focus, input:focus, textarea:focus, select:focus {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+    }
+
+    button:focus-visible, a:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
       font-size: 16px;
@@ -640,17 +669,18 @@
   </style>
 </head>
 <body>
+  <a href="#main-content" class="skip-to-content">Skip to main content</a>
   <!-- Animated Background Particles -->
   <div class="particles" id="particles"></div>
 
-  <header>
+  <header role="banner">
     <button class="back-btn" onclick="smartGoBack()">
       ⬅ Back
     </button>
     <div class="logo">Transport Co.</div>
   </header>
 
-  <div class="container">
+  <div class="container" id="main-content" role="main">
     <div class="page-header">
       <h1>Get In Touch</h1>
       <p class="subtitle">Have questions about our logistics services? We're here to help! Reach out to our team and we'll get back to you within 24 hours.</p>

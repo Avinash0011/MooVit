@@ -202,3 +202,6 @@ Happy Coding 💙
 
 
 
+- [ ] **I've run accessibility testing (Lighthouse score 90+) for UI changes**
+- [ ] **I've tested keyboard navigation for all interactive elements**
+- [ ] **I've verified screen reader compatibility for critical user flows**

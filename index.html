@@ -20,6 +20,7 @@
 </head>
 
 <body data-theme="light">
+  <a href="#main-content" class="skip-to-content">Skip to main content</a>
    <div class="cursor"></div>
 
   <div class="cursor-tail">
@@ -34,7 +35,7 @@
 
   <div class="particles" id="particles"></div>
 
-  <header id="main-header" class="modern-header">
+  <header id="main-header" class="modern-header" role="banner">
     <div class="header-content">
       <a href="#" class="brand-logo">
         <span class="logo-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -46,7 +47,7 @@
           </svg></span>
         <span class="logo-text">Transport<span class="highlight">Co.</span></span>
       </a>
-      <nav class="desktop-nav">
+      <nav class="desktop-nav" role="navigation" aria-label="Main navigation">
         <ul class="nav-links">
           <li><a href="index.html" class="nav-link active">Home</a></li>
           <li><a href="services.html" class="nav-link">Services</a></li>
@@ -70,7 +71,7 @@
         <div class="auth-divider"></div>
         <a href="#" onclick="openLoginPopup()" class="btn-text">Login</a>
         <a href="#" onclick="openSignupPopup()" class="btn-header-cta">Sign Up</a>
-        <button class="mobile-toggle"><span class="bar"></span><span class="bar"></span><span
+        <button class="mobile-toggle" aria-label="Toggle mobile menu" aria-expanded="false"><span class="bar"></span><span class="bar"></span><span
             class="bar"></span></button>
       </div>
     </div>
@@ -86,7 +87,7 @@
     </div>
   </header>
 
-  <main class="hero loading">
+  <main id="main-content" class="hero loading" role="main">
     <h2>Your Cargo, Our Priority</h2>
     <p>Seamless and reliable global shipping solutions, tailored for your business. Fast, secure, and always on time.
     </p>
@@ -323,7 +324,7 @@
     </div>
   </div>
 
-  <footer class="loading">
+  <footer class="loading" role="contentinfo">
     <div class="footer-container">
       <div class="footer-about">
         <h3>Transport Co.</h3>
@@ -504,8 +505,9 @@
     const toggle = document.querySelector('.mobile-toggle');
     const menu = document.querySelector('.mobile-menu');
     toggle.addEventListener('click', () => {
-      menu.classList.toggle('active');
-      document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : 'auto';
+      const isActive = menu.classList.toggle('active');
+      document.body.style.overflow = isActive ? 'hidden' : 'auto';
+      toggle.setAttribute('aria-expanded', isActive);
     });
 
     // --- Modal Logic ---
